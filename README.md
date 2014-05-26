@@ -1,4 +1,4 @@
-web-api-mongo-notes
+Web API MongoNotes
 ===================
 
 Demo to my session about "API Services - The perfect combination of Microsoft Azure and ASP.NET Web API"
