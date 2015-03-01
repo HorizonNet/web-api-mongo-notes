@@ -9,11 +9,13 @@ namespace MongoNotes.Site.Controllers
 {
     public class HomeController : Controller
     {
+        private const string BackendUrl = "http://YOUR-SERVICE-URL/api/note";
+
         public async Task<ActionResult> Index()
         {
             using (var client = new HttpClient())
             {
-                var response = await client.GetAsync("http://YOUR-SERVICE-URL/api/note");
+                var response = await client.GetAsync(BackendUrl);
                 var notes = await response.Content.ReadAsAsync<List<Note>>();
 
                 return View(notes); 
@@ -30,7 +32,7 @@ namespace MongoNotes.Site.Controllers
         {
             using (var client = new HttpClient())
             {
-                await client.PostAsJsonAsync("http://YOUR-SERVICE-URL/api/note", note); 
+                await client.PostAsJsonAsync(BackendUrl, note); 
             }
 
             return RedirectToAction("Index");
