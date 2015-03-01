@@ -45,7 +45,7 @@ namespace MongoNotes.Service.Dal
             }
         }
 
-        private MongoCollection<Note> GetNotesCollection()
+        private static MongoCollection<Note> GetNotesCollection()
         {
             var client = new MongoClient(ConnectionString);
             MongoDatabase database = client.GetServer().GetDatabase(DbName);
